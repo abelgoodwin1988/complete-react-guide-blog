@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-const asyncComponent = (importComponent) => (
+const asyncComponent = (importComponent) => {
   return class extends Component {
     state = {
-      component = null
+      component: null
     }
 
     componentDidMount () {
@@ -16,9 +16,9 @@ const asyncComponent = (importComponent) => (
     render() {
       const C = this.state.component;
 
-      return C ? <C {..this.props} /> : null;
+      return C ? <C {...this.props} /> : null;
     }
   }
-);
+};
 
 export default asyncComponent;
